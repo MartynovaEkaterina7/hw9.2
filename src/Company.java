@@ -1,15 +1,35 @@
 import taxes.TaxSystem;
 
 public class Company {
-    private String title;
-    private int debit;
-    private int credit;
-    private TaxSystem taxSystem;
+    protected String title;
+    protected int debit;
+    protected int credit;
+    protected TaxSystem taxSystem;
 
-    public Company (String title, TaxSystem taxSystem) {
+    public Company(String title, TaxSystem taxSystem) {
         this.title = title;
         this.taxSystem = taxSystem;
     };
+
+    public Company() {
+
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setDebit(int debit) {
+        this.debit = debit;
+    }
+
+    public void setCredit(int credit) {
+        this.credit = credit;
+    }
+
+    public void setTaxSystem(TaxSystem taxSystem) {
+        this.taxSystem = taxSystem;
+    }
 
     public void shiftMoney(int amount) {
         if (amount > 0) {
@@ -17,10 +37,6 @@ public class Company {
         } else if (amount < 0) {
             credit = credit + Math.abs(amount);
         }
-    }
-
-    public void setTaxSystem (TaxSystem taxSystem) {
-        this.taxSystem = taxSystem;
     }
 
     public void payTaxes() {
@@ -32,8 +48,8 @@ public class Company {
 
     public int applyDeals(Deal[] deals) {
         for (int i = 0; i < deals.length; i++ ) {
-            credit = credit + deals[i].creditChange;
-            debit = debit + deals[i].debitChange;
+            credit = credit + deals[i].getCreditChange();
+            debit = debit + deals[i].getDebitChange();
         }
         int margin = debit - credit;
         payTaxes();
