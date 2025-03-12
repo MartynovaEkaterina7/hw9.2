@@ -1,5 +1,5 @@
 public class Sale extends Deal {
-    public Sale(String comment, int creditChange, int debitChange) {
-        super(comment, creditChange, debitChange);
+    public Sale(String title, int price) {
+        super(("Продажа" + title + "на " + price +"руб."),0, price);
     }
 }

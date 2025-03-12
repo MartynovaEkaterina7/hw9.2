@@ -19,10 +19,10 @@ public class Main {
         company.payTaxes();
         //Сделки
         Deal[] deals = {
-                new Sale("Продажа Велосипеда на 15 000 руб.", 0, 15000),
-                new Expenditure("Покупка Запчастей на 5 000 руб.", 5000, 0),
-                new Sale("Продажа Самоката на 8 000 руб.", 0, 8000),
-                new Expenditure("Покупка Стелажа на 3 000 руб.", 3000, 0)
+                new Sale("Велосипед", 15000),
+                new Expenditure("Запчасти", 5000),
+                new Sale("Самокат", 8000),
+                new Expenditure("Стелаж", 3000)
         };
         company.applyDeals(deals);
     }
